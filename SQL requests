@@ -1,0 +1,20 @@
+1)
+SELECT c.login,
+       count(o."inDelivery")
+FROM "Couriers" AS c
+JOIN "Orders" AS o ON c.id=o."courierId"
+WHERE "inDelivery"=TRUE
+GROUP BY c.login;
+
+
+2)
+SELECT finished,
+       cancelled,
+       "inDelivery",
+       CASE
+           WHEN finished=TRUE THEN 'status = 2'
+           WHEN cancelled=TRUE THEN 'status = -1'
+           WHEN "inDelivery"=TRUE THEN 'status = 1'
+           ELSE 'status = 0'
+       END
+FROM "Orders";
