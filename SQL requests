@@ -8,13 +8,11 @@ GROUP BY c.login;
 
 
 2)
-SELECT finished,
-       cancelled,
-       "inDelivery",
+SELECT track,
        CASE
            WHEN finished=TRUE THEN 'status = 2'
            WHEN cancelled=TRUE THEN 'status = -1'
            WHEN "inDelivery"=TRUE THEN 'status = 1'
            ELSE 'status = 0'
-       END
+       END as status
 FROM "Orders";
