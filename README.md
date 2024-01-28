@@ -7,3 +7,5 @@
 -pytest
 
 Для запуска теста ввести в терминал "pytest"
+
+![test.png](test.png)
